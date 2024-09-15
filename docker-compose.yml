@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  jupyter:
+    image: jupyter/pyspark-notebook:latest
+    container_name: jupyter
+    ports:
+      - "8888:8888"  # Puerto para la interfaz de Jupyter Notebook, para acceder a jupyter notebook, escriba en el navegador el siguiente url: http://localhost:8888
+    environment:
+      - SPARK_MASTER_URL=local[*]  # Ejecutar Spark en modo local
+      - JUPYTER_ENABLE_LAB=yes
+    command: start-notebook.sh --NotebookApp.token='' --NotebookApp.password=''
+    networks:
+      - jupyter-network
+
+networks:
+  jupyter-network:
+    driver: bridge
