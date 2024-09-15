@@ -65,7 +65,9 @@ para acceder a jupyter notebook, escriba en el navegador el siguiente url:
 
 
 ## Practica
-<span style="color:red">Si realizara la practica con la primera opcion, omita los pasos de configuracion de jupyter y solo copie el archivo csv y realice la carga del mismo</span>
+
+**Si realizara la practica con la primera opcion, omita los pasos de configuracion de jupyter y solo copie el archivo csv y realice la carga del mismo**
+
 Para la practica, luego de acceder a jupyter notebook debe crear un nuevo notebook para realizar las pruebas.
 
 ![paso uno notebook](./images/1.png)
@@ -119,24 +121,28 @@ df = spark.read.csv(file_path, header=True, inferSchema=True)
 df.show(5)
 ```
 ![solucion](./images/6.png)
+
 2. Muestre el esquema del DataFrame.
 ```python
 # Esquema del DataFrame
 df.printSchema()
 ```
 ![solucion](./images/7.png)
+
 3. Filtrar los partidos donde el resultado fue empate 0-0.
 ```python
 # Filtrar los partidos donde el resultado fue empate 0-0 (FT = 0-0)
 df.filter(df['FT'] == '0-0').show()
 ```
 ![solucion](./images/8.png)
+
 4. Seleccionar columnas específicas, como el equipo 1, equipo 2 y el marcador final.
 ```python
 # Seleccionar columnas específicas, como el equipo 1, equipo 2 y el marcador final
 df.select("Team 1", "Team 2", "FT").show()
 ```
 ![solucion](./images/9.png)
+
 5. Seleccionar columnas específicas, como el equipo 1, equipo 2 y el marcador final.
 ```python
 # Contar el número de partidos jugados
